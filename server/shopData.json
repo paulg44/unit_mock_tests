@@ -1,0 +1,17 @@
+[
+    {"id": 1, "item": "T-shirt", "category": "Clothing", "price": 15.99, "description": "A basic cotton T-shirt suitable for everyday wear."},
+    {"id": 2, "item": "Jeans", "category": "Clothing", "price": 29.99, "description": "Classic denim jeans with a comfortable fit."},
+    {"id": 3, "item": "Sneakers", "category": "Footwear", "price": 49.99, "description": "Stylish and durable sneakers perfect for casual outings."},
+    {"id": 4, "item": "Backpack", "category": "Accessories", "price": 39.99, "description": "A spacious backpack with multiple compartments for organizing your belongings."},
+    {"id": 5, "item": "Watch", "category": "Accessories", "price": 79.99, "description": "A sleek wristwatch with a stainless steel strap and water-resistant features."},
+    {"id": 6, "item": "Headphones", "category": "Electronics", "price": 29.99, "description": "High-quality over-ear headphones with noise-canceling technology."},
+    {"id": 7, "item": "Smartphone case", "category": "Accessories", "price": 12.99, "description": "A protective case designed specifically for your smartphone model."},
+    {"id": 8, "item": "Sunglasses", "category": "Accessories", "price": 24.99, "description": "Fashionable sunglasses with UV protection lenses."},
+    {"id": 9, "item": "Water bottle", "category": "Accessories", "price": 9.99, "description": "A durable and leak-proof water bottle ideal for staying hydrated on the go."},
+    {"id": 10, "item": "Notebook", "category": "Stationery", "price": 5.99, "description": "A compact notebook with lined pages for jotting down notes or sketches."},
+    {"id": 11, "item": "Pens (pack of 10)", "category": "Stationery", "price": 3.99, "description": "A pack of 10 ballpoint pens with smooth ink flow."},
+    {"id": 12, "item": "Umbrella", "category": "Accessories", "price": 19.99, "description": "A sturdy umbrella with a windproof design."},
+    {"id": 13, "item": "Yoga mat", "category": "Fitness", "price": 19.99, "description": "A non-slip yoga mat for practicing yoga and other floor exercises."},
+    {"id": 14, "item": "Running shoes", "category": "Footwear", "price": 59.99, "description": "Lightweight running shoes with cushioned soles for comfort and support."},
+    {"id": 15, "item": "Hoodie", "category": "Clothing", "price": 34.99, "description": "A cozy hoodie made from soft fleece fabric."}
+]
