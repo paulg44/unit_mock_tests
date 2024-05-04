@@ -1,5 +1,13 @@
 // Function for fetching data
-const shopItemsResponse = fetch("/api/shop").then((shopItemsResponse) => {
-  return shopItemsResponse.json();
-});
-console.log(shopItemsResponse);
+async function fetchAllShopItems() {
+  const shopItemsResponse = await fetch(`../server/shopData.json`).then(
+    (shopItemsResponse) => {
+      return shopItemsResponse.json();
+    }
+  );
+  const items = shopItemsResponse.map((item) => item.item);
+  const shopContainer = document.querySelector(".shop-container");
+  shopContainer.innerHTML = `<p>${items}</p>`;
+}
+
+fetchAllShopItems();
