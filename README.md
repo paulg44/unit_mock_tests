@@ -12,7 +12,7 @@ Basic vanilla JavaScript application. To test my knowledge of unit tests and moc
 
 ## Extras
 
-- option to sign in
+- option to sign in (auth)
 - have a saved list
 
 ## CRUD Elements
