@@ -1,10 +1,3 @@
-// Test function to test tests
-function sum(a, b) {
-  return a + b;
-}
-
-module.exports = sum;
-
 // Function for fetching data
 const dev = "http://localhost:5030/api/shop";
 const deploy = "https://unit-mock-tests.onrender.com/api/shop";
