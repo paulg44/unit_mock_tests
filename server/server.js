@@ -10,8 +10,12 @@ dotenv.config();
 const { Pool } = pkg;
 
 const app = express();
-const connectionString = process.env.DB_CONNECTION_STRING;
+const connectionString = process.env.DB_STRING;
 const PORT = process.env.PORT;
+
+if (!connectionString) {
+  throw new Error("No connection string, check env variables");
+}
 
 export const pool = new Pool({
   connectionString,
