@@ -21,32 +21,38 @@ const itemCard = document.querySelector(".shop-item-card");
 
 function displayShopItems(data) {
   console.log(data);
-  const items = data.map((item) => item.item);
-  const price = data.map((price) => price.price);
-  const description = data.map((description) => description.description);
   const itemList = document.querySelector(".shop-item-list");
 
-  items.forEach((item, index) => {
+  data.forEach((item, index) => {
     const itemCard = document.createElement("li");
     const addToCartBtn = document.createElement("button");
+    addToCartBtn.classList = "add-to-cart-btn";
+    addToCartBtn.innerText = "Add to cart";
+
+    addToCartBtn.addEventListener("click", () => {
+      console.log("add to cart btn clicked", item.item);
+      addToCart(item);
+    });
+
     itemCard.innerHTML = `
     <div id="${index}" class="item-title-image">
-    <p>${item}</p>
+    <p>${item.item}</p>
     </div>
     <div class="description-price">
-    <p>£${price[index]}</p>
-    <p>${description[index]}</p>
-    </div>
-    `;
+    <p>£${item.price}</p>
+    <p>${item.description}</p>
+    </div>`;
 
     itemList.appendChild(itemCard);
-    itemList.appendChild(addToCartBtn).innerHTML = "Add to cart";
+    itemList.appendChild(addToCartBtn);
   });
 }
 
-fetchAllShopItems();
+function addToCart(item) {
+  console.log(item);
 
-addToCartBtn.addEventListener("click", () => {
-  console.log("cart btn clicked");
-  cartItem.innerHTML = itemCard;
-});
+  const cartList = document.getElementById("cart-item");
+  cartList.innerHTML = item;
+}
+
+fetchAllShopItems();

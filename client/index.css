@@ -1,3 +1,8 @@
 .item-title-image {
   color: red;
 }
+
+.cart-item {
+  background-color: black;
+  color: white;
+}
