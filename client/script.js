@@ -50,9 +50,20 @@ function displayShopItems(data) {
 
 function addToCart(item) {
   console.log(item);
-
   const cartList = document.getElementById("cart-item");
-  cartList.innerHTML = item;
+
+  // item.map((cartItem) => {
+  const cartListItem = document.createElement("li");
+  cartListItem.innerHTML = `
+  <div class="cart-item">
+  <p>${item.item}</p>
+  </div>
+  <div class="description-price">
+  <p>£${item.price}</p>
+  <p>${item.description}</p>
+  </div>`;
+  cartList.appendChild(cartListItem);
+  // });
 }
 
 fetchAllShopItems();
