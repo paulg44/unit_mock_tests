@@ -58,14 +58,50 @@ function displayShopItems(data) {
 
    - add remove button and do the same but in reverse
 */
-const totalPriceArr = [];
+
+//
 
 function addToCart(item) {
   console.log(item);
   const cartList = document.getElementById("cart-item");
 
-  // item.forEach((cartItem) => {
   const cartListItem = document.createElement("li");
+  const quantityP = document.createElement("p");
+
+  const removeBtn = document.createElement("button");
+  removeBtn.classList = "remove-from-cart-btn";
+  removeBtn.innerText = "Remove from cart";
+
+  removeBtn.addEventListener("click", () => {
+    console.log("remove btn clicked");
+    cartList.removeChild(cartListItem);
+    cartList.removeChild(removeBtn);
+    // updateTotal();
+  });
+
+  const addBtn = document.createElement("button");
+  addBtn.classList = "add--btn";
+  addBtn.innerText = "+";
+
+  let quantity = 1;
+
+  addBtn.addEventListener("click", () => {
+    console.log("add btn clicked");
+    quantity++;
+    quantityP.innerHTML = quantity;
+    // numberArray.push(item.price);
+  });
+
+  const minusBtn = document.createElement("button");
+  minusBtn.classList = "minus-btn";
+  minusBtn.innerText = "-";
+
+  minusBtn.addEventListener("click", () => {
+    console.log("minus btn clicked");
+    quantity--;
+    quantityP.innerHTML = quantity;
+  });
+
   cartListItem.innerHTML = `
     <div class="cart-item">
     <p>${item.item}</p>
@@ -74,9 +110,19 @@ function addToCart(item) {
     <p>£${item.price}</p>
     <p>${item.description}</p>
     </div>`;
-  cartList.appendChild(cartListItem);
-  // });
 
+  cartList.appendChild(cartListItem);
+  cartList.appendChild(quantityP);
+  cartList.appendChild(removeBtn);
+  cartList.appendChild(addBtn);
+  cartList.appendChild(minusBtn);
+
+  updateTotal(item);
+}
+
+const totalPriceArr = [];
+
+function updateTotal(item, total) {
   totalPriceArr.push(item.price);
   console.log(totalPriceArr);
   const numberArray = [];
@@ -84,6 +130,8 @@ function addToCart(item) {
     numberArray.push(parseFloat(totalPriceArr[i]));
   }
   console.log(numberArray);
+
+  // total.pop();
 
   const totalPrice = document.getElementById("total");
   const totalPriceSum = numberArray.reduce((acc, curr) => acc + curr, 0);

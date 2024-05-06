@@ -2,6 +2,10 @@
   color: red;
 }
 
+.item-cart {
+  border: 2px solid blue;
+}
+
 .cart-item {
   background-color: black;
   color: white;
