@@ -48,22 +48,47 @@ function displayShopItems(data) {
   });
 }
 
+/* Next steps 
+   - have an empty variable at 0 for each item
+   - add item to cart add 1 to "count"
+   - if an item already exists in cart
+   - add to "count"
+   - have a price variable that adds the total of each item
+   - have another price variable that adds the total of the basket
+
+   - add remove button and do the same but in reverse
+*/
+const totalPriceArr = [];
+
 function addToCart(item) {
   console.log(item);
   const cartList = document.getElementById("cart-item");
 
-  // item.map((cartItem) => {
+  // item.forEach((cartItem) => {
   const cartListItem = document.createElement("li");
   cartListItem.innerHTML = `
-  <div class="cart-item">
-  <p>${item.item}</p>
-  </div>
-  <div class="description-price">
-  <p>£${item.price}</p>
-  <p>${item.description}</p>
-  </div>`;
+    <div class="cart-item">
+    <p>${item.item}</p>
+    </div>
+    <div class="description-price">
+    <p>£${item.price}</p>
+    <p>${item.description}</p>
+    </div>`;
   cartList.appendChild(cartListItem);
   // });
+
+  totalPriceArr.push(item.price);
+  console.log(totalPriceArr);
+  const numberArray = [];
+  for (let i = 0; i < totalPriceArr.length; i++) {
+    numberArray.push(parseFloat(totalPriceArr[i]));
+  }
+  console.log(numberArray);
+
+  const totalPrice = document.getElementById("total");
+  const totalPriceSum = numberArray.reduce((acc, curr) => acc + curr, 0);
+
+  totalPrice.innerText = `£${totalPriceSum.toFixed(2)}`;
 }
 
 fetchAllShopItems();
