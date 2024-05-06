@@ -16,27 +16,37 @@ async function fetchAllShopItems() {
   }
 }
 
+const cartItem = document.getElementById("cart-item");
+const itemCard = document.querySelector(".shop-item-card");
+
 function displayShopItems(data) {
   console.log(data);
   const items = data.map((item) => item.item);
   const price = data.map((price) => price.price);
   const description = data.map((description) => description.description);
-  const shopContainer = document.querySelector(".shop-container");
-  shopContainer.innerHTML = items
-    .map(
-      (item, index) =>
-        `
-         <div class="item-title-image">
-            <p>${item}</p>
-          </div>
-          <div class="description-price">
-            <p>£${price[index]}</p>
-            <p>${description[index]}</p>
-          </div>
-          <button type="button">Add to cart</button>
-        `
-    )
-    .join("");
+  const itemList = document.querySelector(".shop-item-list");
+
+  items.forEach((item, index) => {
+    const itemCard = document.createElement("li");
+    const addToCartBtn = document.createElement("button");
+    itemCard.innerHTML = `
+    <div id="${index}" class="item-title-image">
+    <p>${item}</p>
+    </div>
+    <div class="description-price">
+    <p>£${price[index]}</p>
+    <p>${description[index]}</p>
+    </div>
+    `;
+
+    itemList.appendChild(itemCard);
+    itemList.appendChild(addToCartBtn).innerHTML = "Add to cart";
+  });
 }
 
 fetchAllShopItems();
+
+addToCartBtn.addEventListener("click", () => {
+  console.log("cart btn clicked");
+  cartItem.innerHTML = itemCard;
+});
