@@ -18,10 +18,10 @@ async function fetchAllShopItems() {
 
 const cartItem = document.getElementById("cart-item");
 const itemCard = document.querySelector(".shop-item-card");
+const itemList = document.querySelector(".shop-item-list");
 
 function displayShopItems(data) {
   console.log(data);
-  const itemList = document.querySelector(".shop-item-list");
 
   data.forEach((item, index) => {
     const itemCard = document.createElement("li");
@@ -61,7 +61,7 @@ function displayShopItems(data) {
 
 //
 
-function addToCart(item) {
+function addToCart(item, numberArray) {
   console.log(item);
   const cartList = document.getElementById("cart-item");
 
@@ -76,11 +76,18 @@ function addToCart(item) {
     console.log("remove btn clicked");
     cartList.removeChild(cartListItem);
     cartList.removeChild(removeBtn);
-    // updateTotal();
+    cartList.removeChild(addBtn);
+    cartList.removeChild(minusBtn);
+    cartList.removeChild(quantityP);
+    const index = numberArray.indexOf(item);
+    if (index !== 1) {
+      totalPriceArr.splice(index, 1);
+      updateTotal();
+    }
   });
 
   const addBtn = document.createElement("button");
-  addBtn.classList = "add--btn";
+  addBtn.classList = "add-btn";
   addBtn.innerText = "+";
 
   let quantity = 1;
@@ -89,7 +96,7 @@ function addToCart(item) {
     console.log("add btn clicked");
     quantity++;
     quantityP.innerHTML = quantity;
-    // numberArray.push(item.price);
+    updateTotal(item);
   });
 
   const minusBtn = document.createElement("button");
@@ -100,6 +107,7 @@ function addToCart(item) {
     console.log("minus btn clicked");
     quantity--;
     quantityP.innerHTML = quantity;
+    updateTotal();
   });
 
   cartListItem.innerHTML = `
@@ -122,7 +130,7 @@ function addToCart(item) {
 
 const totalPriceArr = [];
 
-function updateTotal(item, total) {
+function updateTotal(item) {
   totalPriceArr.push(item.price);
   console.log(totalPriceArr);
   const numberArray = [];
@@ -130,8 +138,6 @@ function updateTotal(item, total) {
     numberArray.push(parseFloat(totalPriceArr[i]));
   }
   console.log(numberArray);
-
-  // total.pop();
 
   const totalPrice = document.getElementById("total");
   const totalPriceSum = numberArray.reduce((acc, curr) => acc + curr, 0);
