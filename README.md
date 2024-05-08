@@ -42,3 +42,6 @@ Backend
 - User auth
 - Test intergration between different components like controllers, database and server (Mock?)
 - Test for SQL injection (security)
+
+## Random car thought 
+Could, or should, I make the items going into the basket and object? So I can access things easier, make the total price easier etc by getting stuff from an id???
