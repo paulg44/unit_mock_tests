@@ -79,11 +79,8 @@ function addToCart(item, numberArray) {
     cartList.removeChild(addBtn);
     cartList.removeChild(minusBtn);
     cartList.removeChild(quantityP);
-    const index = numberArray.indexOf(item);
-    if (index !== 1) {
-      totalPriceArr.splice(index, 1);
-      updateTotal();
-    }
+
+    updateTotal(item, false);
   });
 
   const addBtn = document.createElement("button");
@@ -107,7 +104,7 @@ function addToCart(item, numberArray) {
     console.log("minus btn clicked");
     quantity--;
     quantityP.innerHTML = quantity;
-    updateTotal();
+    updateTotal(item, false);
   });
 
   cartListItem.innerHTML = `
@@ -128,15 +125,25 @@ function addToCart(item, numberArray) {
   updateTotal(item);
 }
 
-const totalPriceArr = [];
+let totalPriceArr = [];
 
-function updateTotal(item) {
-  totalPriceArr.push(item.price);
-  console.log(totalPriceArr);
-  const numberArray = [];
-  for (let i = 0; i < totalPriceArr.length; i++) {
-    numberArray.push(parseFloat(totalPriceArr[i]));
+function updateTotal(item, isAddition = true) {
+  if (isAddition) {
+    totalPriceArr.push(item.price);
+  } else {
+    // Current issues. If I have a two elements that are the same, 3.99 for example. It will remove both from the total
+    // totalPriceArr = totalPriceArr.filter((price) => price !== item.price);
+    let found = false;
+    for (let i = 0; i < totalPriceArr.length; i++) {
+      if (!found && totalPriceArr[i] === item.price) {
+        totalPriceArr.splice(i, 1);
+        found = true;
+      }
+    }
   }
+  console.log(totalPriceArr);
+  const numberArray = totalPriceArr.map(parseFloat);
+
   console.log(numberArray);
 
   const totalPrice = document.getElementById("total");
