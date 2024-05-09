@@ -23,7 +23,7 @@ const itemList = document.querySelector(".shop-item-list");
 function displayShopItems(data) {
   console.log(data);
 
-  data.forEach((item, index) => {
+  data.forEach((item) => {
     const itemCard = document.createElement("li");
     const addToCartBtn = document.createElement("button");
     addToCartBtn.classList = "add-to-cart-btn";
@@ -36,7 +36,7 @@ function displayShopItems(data) {
     });
 
     itemCard.innerHTML = `
-    <div id="${index}" class="item-title-image">
+    <div id="${item.id}" class="item-title-image">
     <p>${item.item}</p>
     </div>
     <div class="description-price">
@@ -68,13 +68,18 @@ function addToCart(item) {
   console.log(cartItemArr);
 
   const cartList = document.getElementById("cart-item");
-
   const cartListItem = document.createElement("li");
   const quantityP = document.createElement("p");
-
   const removeBtn = document.createElement("button");
+  const addBtn = document.createElement("button");
+  const minusBtn = document.createElement("button");
+
   removeBtn.classList = "remove-from-cart-btn";
   removeBtn.innerText = "Remove from cart";
+  addBtn.classList = "add-btn";
+  addBtn.innerText = "+";
+  minusBtn.classList = "minus-btn";
+  minusBtn.innerText = "-";
 
   removeBtn.addEventListener("click", () => {
     console.log("remove btn clicked");
@@ -87,10 +92,6 @@ function addToCart(item) {
     updateTotal(item, false);
   });
 
-  const addBtn = document.createElement("button");
-  addBtn.classList = "add-btn";
-  addBtn.innerText = "+";
-
   let quantity = 1;
 
   addBtn.addEventListener("click", () => {
@@ -100,10 +101,6 @@ function addToCart(item) {
     updateTotal(item);
   });
 
-  const minusBtn = document.createElement("button");
-  minusBtn.classList = "minus-btn";
-  minusBtn.innerText = "-";
-
   minusBtn.addEventListener("click", () => {
     console.log("minus btn clicked");
     quantity--;
@@ -112,7 +109,7 @@ function addToCart(item) {
   });
 
   cartListItem.innerHTML = `
-      <div class="cart-item">
+      <div id="${item.id}" class="cart-item">
       <p>${item.item}</p>
       </div>
       <div class="description-price">
@@ -129,22 +126,21 @@ function addToCart(item) {
 
   updateTotal(item);
 }
+// Functions I believe I need to make this more readable and useable
+function removeItem() {}
+function incrementQuantity() {}
+function decrementQuantity() {}
+displayCartItems() {}
 
 let totalPriceArr = [];
 
-function updateTotal(item, isAddition = true) {
+function updateTotal(cartItemArr, isAddition = true) {
   if (isAddition) {
-    totalPriceArr.push(item.price);
+    totalPriceArr.push(cartItemArr.price);
   } else {
-    // Current issues. If I have a two elements that the quantity is more than 1. It will remove them all as expected but only remove one price not all prices matching
-    // totalPriceArr = totalPriceArr.filter((price) => price !== item.price);
-    let found = false;
-    for (let i = 0; i < totalPriceArr.length; i++) {
-      if (!found && totalPriceArr[i] === item.price) {
-        totalPriceArr.splice(i, 1);
-        found = true;
-      }
-    }
+    totalPriceArr = totalPriceArr.filter(
+      (price) => price !== cartItemArr.price
+    );
   }
   console.log(totalPriceArr);
   const numberArray = totalPriceArr.map(parseFloat);
@@ -154,7 +150,7 @@ function updateTotal(item, isAddition = true) {
   const totalPrice = document.getElementById("total");
   const totalPriceSum = numberArray.reduce((acc, curr) => acc + curr, 0);
 
-  totalPrice.innerText = `£${totalPriceSum.toFixed(2)}`;
+  totalPrice.innerText = `Cart Total: £${totalPriceSum.toFixed(2)}`;
 }
 
 fetchAllShopItems();
