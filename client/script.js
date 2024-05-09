@@ -31,6 +31,7 @@ function displayShopItems(data) {
 
     addToCartBtn.addEventListener("click", () => {
       console.log("add to cart btn clicked", item.item);
+      cartItemArr.push(item);
       addToCart(item);
     });
 
@@ -49,20 +50,23 @@ function displayShopItems(data) {
 }
 
 /* Next steps 
-   - have an empty variable at 0 for each item
-   - add item to cart add 1 to "count"
-   - if an item already exists in cart
-   - add to "count"
-   - have a price variable that adds the total of each item
-   - have another price variable that adds the total of the basket
+- have an empty variable at 0 for each item
+- add item to cart add 1 to "count"
+- if an item already exists in cart
+- add to "count"
+- have a price variable that adds the total of each item
+- have another price variable that adds the total of the basket
 
-   - add remove button and do the same but in reverse
+- add remove button and do the same but in reverse
 */
 
 //
+const cartItemArr = [];
 
-function addToCart(item, numberArray) {
+function addToCart(item) {
   console.log(item);
+  console.log(cartItemArr);
+
   const cartList = document.getElementById("cart-item");
 
   const cartListItem = document.createElement("li");
@@ -108,19 +112,20 @@ function addToCart(item, numberArray) {
   });
 
   cartListItem.innerHTML = `
-    <div class="cart-item">
-    <p>${item.item}</p>
-    </div>
-    <div class="description-price">
-    <p>£${item.price}</p>
-    <p>${item.description}</p>
-    </div>`;
+      <div class="cart-item">
+      <p>${item.item}</p>
+      </div>
+      <div class="description-price">
+      <p>£${item.price}</p>
+      <p>${item.description}</p>
+      </div>`;
 
   cartList.appendChild(cartListItem);
   cartList.appendChild(quantityP);
   cartList.appendChild(removeBtn);
   cartList.appendChild(addBtn);
   cartList.appendChild(minusBtn);
+  // });
 
   updateTotal(item);
 }
@@ -131,7 +136,7 @@ function updateTotal(item, isAddition = true) {
   if (isAddition) {
     totalPriceArr.push(item.price);
   } else {
-    // Current issues. If I have a two elements that are the same, 3.99 for example. It will remove both from the total
+    // Current issues. If I have a two elements that the quantity is more than 1. It will remove them all as expected but only remove one price not all prices matching
     // totalPriceArr = totalPriceArr.filter((price) => price !== item.price);
     let found = false;
     for (let i = 0; i < totalPriceArr.length; i++) {
