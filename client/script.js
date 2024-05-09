@@ -130,7 +130,7 @@ function addToCart(item) {
 function removeItem() {}
 function incrementQuantity() {}
 function decrementQuantity() {}
-displayCartItems() {}
+function displayCartItems() {}
 
 let totalPriceArr = [];
 
