@@ -4,7 +4,6 @@
   "description": "",
   "main": "script.js",
   "proxy": "http://localhost:5500",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "start": "npm start"
