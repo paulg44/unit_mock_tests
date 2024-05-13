@@ -1,3 +1,6 @@
+// import dotenv from "dotenv";
+// dotenv.config();
+
 // Function for fetching data
 const dev = "http://localhost:5030/api/shop";
 const deploy = "https://unit-mock-tests.onrender.com/api/shop";
@@ -154,3 +157,5 @@ function updateTotal(cartItemArr, isAddition = true) {
 }
 
 fetchAllShopItems();
+
+module.exports = updateTotal;

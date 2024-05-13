@@ -4,6 +4,7 @@
   "description": "",
   "main": "script.js",
   "proxy": "http://localhost:5500",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "start": "npm start"
@@ -13,5 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }
