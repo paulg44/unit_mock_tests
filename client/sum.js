@@ -17,7 +17,7 @@ let addArr = ["trousers", "skirt"];
 function addToArray(array, item) {
   return array.push(item);
 }
-console.log(addToArray(addArr, "shirt"), ...addArr);
+console.log(addToArray(addArr, 1), ...addArr);
 
 module.exports = { sum, arrayTotal, addToArray };
 // module.exports.arrayTotal = arrayTotal;
