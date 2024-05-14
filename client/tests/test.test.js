@@ -9,7 +9,7 @@
      - An input value can be changed
      - 
 */
-const { sum, arrayTotal, addToArray } = require("../sum");
+const { sum, arrayTotal, addToArray, removeFromArray } = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
   expect(sum(1, 2)).toBe(3);
@@ -46,6 +46,7 @@ describe("add element to array", () => {
   test("test numbers", () => {
     let arr = [1, 2, 3, 4, 5];
     let number = 3;
+
     addToArray(arr, number);
     expect(arr).toContain(number);
   });
@@ -53,10 +54,21 @@ describe("add element to array", () => {
   test("test a mix of numbers and letters", () => {
     let arr = [1, 2, "shirt", 4, "shorts"];
     let number = 3;
+
     addToArray(arr, number);
-    expect(arr).toContain(number);
+    expect(arr).toContain(3);
   });
 });
 
 // Remove any element from array
-// test("remove element from array");
+describe("remove element from array", () => {
+  test("test remove selected element", () => {
+    let arr = [1, 2, 3, 4, 5];
+    let itemToRemove = 3;
+
+    removeFromArray(arr, itemToRemove);
+    expect(arr).not.toContain(3);
+  });
+
+  // Test what happens if element was never in array?
+});

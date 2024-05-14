@@ -12,12 +12,19 @@ function arrayTotal(array) {
 console.log(arrayTotal(totalArr));
 
 // Add an item to array
-let addArr = ["trousers", "skirt"];
+let testArr = [1, 2, 3, 4, 5];
 
 function addToArray(array, item) {
   return array.push(item);
 }
-console.log(addToArray(addArr, 1), ...addArr);
+// console.log(addToArray(testArr, 1), ...testArr);
 
-module.exports = { sum, arrayTotal, addToArray };
+// Remove item from array
+function removeFromArray(array, item) {
+  const index = array.indexOf(item);
+  return array.splice(index, 1);
+}
+console.log(removeFromArray(testArr, 2), ...testArr);
+
+module.exports = { sum, arrayTotal, addToArray, removeFromArray };
 // module.exports.arrayTotal = arrayTotal;
