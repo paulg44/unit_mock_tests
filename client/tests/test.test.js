@@ -12,7 +12,7 @@
      - Add object to array
      - Throw error?
      - An input value can be changed
-     - 
+     - Mock an API call (use pokemon)
 */
 const {
   sum,
@@ -22,6 +22,8 @@ const {
   filterArray,
   convertString,
   findRemainder,
+  findLargest,
+  findSmallest,
 } = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
@@ -121,5 +123,25 @@ describe("find the remainder of two numbers", () => {
 
     let result = findRemainder(firstNum, secondNum);
     expect(result).toBe(1);
+  });
+});
+
+// Find the largest number in an array
+describe("find largest number", () => {
+  test("find largest", () => {
+    let arr = [2, 5, 3, 8, 21, 3, 40, 8];
+
+    let result = findLargest(arr);
+    expect(result).toBe(40);
+  });
+});
+
+// Find the smallest number in an array
+describe("find smallest number", () => {
+  test("find smallest", () => {
+    let arr = [5, 3, 8, 21, 2, 3, 40, 8];
+
+    let result = findSmallest(arr);
+    expect(result).toBe(2);
   });
 });

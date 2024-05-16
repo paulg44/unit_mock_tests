@@ -2,6 +2,7 @@
 function sum(a, b) {
   return a + b;
 }
+let testArr = [1, 2, 3, 4, 5];
 
 // Sum up all items in array
 let totalArr = [9.99, 12.99];
@@ -12,8 +13,6 @@ function arrayTotal(array) {
 console.log(arrayTotal(totalArr));
 
 // Add an item to array
-let testArr = [1, 2, 3, 4, 5];
-
 function addToArray(array, item) {
   return array.push(item);
 }
@@ -53,7 +52,21 @@ function findRemainder(num1, num2) {
   return num1 % num2;
 }
 
-console.log(findRemainder(20, 6));
+// console.log(findRemainder(20, 6));
+
+// Find Largest
+function findLargest(arr) {
+  return Math.max(...arr);
+}
+
+// console.log(findLargest(testArr));
+
+// Find Smallest
+function findSmallest(arr) {
+  return Math.min(...arr);
+}
+
+console.log(findSmallest(testArr));
 
 module.exports = {
   sum,
@@ -63,5 +76,7 @@ module.exports = {
   filterArray,
   convertString,
   findRemainder,
+  findLargest,
+  findSmallest,
 };
 // module.exports.arrayTotal = arrayTotal;
