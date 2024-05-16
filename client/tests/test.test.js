@@ -4,12 +4,23 @@
      - All items in an array add up (shopping cart)
      - Element can be added to array (toContain)
      - Element can be removed from array 
+     - Array can be filtered for specific values
+     - Convert string from upper to lower
+     - Find the remainder
+     - Find the highest value
+     - Find the lowest value
      - Add object to array
      - Throw error?
      - An input value can be changed
      - 
 */
-const { sum, arrayTotal, addToArray, removeFromArray } = require("../sum");
+const {
+  sum,
+  arrayTotal,
+  addToArray,
+  removeFromArray,
+  filterArray,
+} = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
   expect(sum(1, 2)).toBe(3);
@@ -69,6 +80,16 @@ describe("remove element from array", () => {
     removeFromArray(arr, itemToRemove);
     expect(arr).not.toContain(3);
   });
+});
 
-  // Test what happens if element was never in array?
+// Filter Array
+describe("filtered arrays", () => {
+  test("filter numbers below x", () => {
+    let arr = [3, 6, 4, 7, 9, 19, 14];
+    // Remove all elements below 10
+    let filtered = 10;
+
+    result = filterArray(arr, filtered);
+    expect(result).not.toContain(19, 14);
+  });
 });

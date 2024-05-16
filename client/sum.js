@@ -24,7 +24,13 @@ function removeFromArray(array, item) {
   const index = array.indexOf(item);
   return array.splice(index, 1);
 }
-console.log(removeFromArray(testArr, 2), ...testArr);
+// console.log(removeFromArray(testArr, 2), ...testArr);
 
-module.exports = { sum, arrayTotal, addToArray, removeFromArray };
+function filterArray(array, filtered) {
+  return array.filter((num) => num < filtered);
+}
+
+console.log(filterArray(testArr, 3), ...testArr);
+
+module.exports = { sum, arrayTotal, addToArray, removeFromArray, filterArray };
 // module.exports.arrayTotal = arrayTotal;
