@@ -20,6 +20,7 @@ const {
   addToArray,
   removeFromArray,
   filterArray,
+  convertString,
 } = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
@@ -91,5 +92,22 @@ describe("filtered arrays", () => {
 
     result = filterArray(arr, filtered);
     expect(result).not.toContain(19, 14);
+  });
+});
+
+// Convert String Case
+describe("converts strings case", () => {
+  test("upper to lower", () => {
+    let string = "TESTING";
+
+    result = convertString(string);
+    expect(result).toBe("testing");
+  });
+
+  test("lower to upper", () => {
+    let string = "testing";
+
+    result = convertString(string);
+    expect(result).toBe("TESTING");
   });
 });

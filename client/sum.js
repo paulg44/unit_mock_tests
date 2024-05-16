@@ -26,11 +26,34 @@ function removeFromArray(array, item) {
 }
 // console.log(removeFromArray(testArr, 2), ...testArr);
 
+// Filter items in array
 function filterArray(array, filtered) {
   return array.filter((num) => num < filtered);
 }
 
-console.log(filterArray(testArr, 3), ...testArr);
+// console.log(filterArray(testArr, 3), ...testArr);
 
-module.exports = { sum, arrayTotal, addToArray, removeFromArray, filterArray };
+// Covert string case
+let testString = "TEST STRING";
+
+function convertString(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "a" && str[i] <= "z") {
+      return str.toUpperCase();
+    } else if (str[i] >= "A" && str[i] <= "Z") {
+      return str.toLowerCase();
+    }
+  }
+}
+
+console.log(convertString(testString));
+
+module.exports = {
+  sum,
+  arrayTotal,
+  addToArray,
+  removeFromArray,
+  filterArray,
+  convertString,
+};
 // module.exports.arrayTotal = arrayTotal;
