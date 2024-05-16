@@ -46,7 +46,14 @@ function convertString(str) {
   }
 }
 
-console.log(convertString(testString));
+// console.log(convertString(testString));
+
+// Find Remainder
+function findRemainder(num1, num2) {
+  return num1 % num2;
+}
+
+console.log(findRemainder(20, 6));
 
 module.exports = {
   sum,
@@ -55,5 +62,6 @@ module.exports = {
   removeFromArray,
   filterArray,
   convertString,
+  findRemainder,
 };
 // module.exports.arrayTotal = arrayTotal;

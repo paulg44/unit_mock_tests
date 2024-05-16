@@ -21,6 +21,7 @@ const {
   removeFromArray,
   filterArray,
   convertString,
+  findRemainder,
 } = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
@@ -109,5 +110,16 @@ describe("converts strings case", () => {
 
     result = convertString(string);
     expect(result).toBe("TESTING");
+  });
+});
+
+// Find the remainder
+describe("find the remainder of two numbers", () => {
+  test("find remainder", () => {
+    let firstNum = 10;
+    let secondNum = 3;
+
+    let result = findRemainder(firstNum, secondNum);
+    expect(result).toBe(1);
   });
 });
