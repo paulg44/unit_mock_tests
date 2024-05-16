@@ -84,6 +84,8 @@ describe("remove element from array", () => {
     removeFromArray(arr, itemToRemove);
     expect(arr).not.toContain(3);
   });
+
+  // What happens if item to remove does not exist?
 });
 
 // Filter Array
@@ -96,6 +98,8 @@ describe("filtered arrays", () => {
     result = filterArray(arr, filtered);
     expect(result).not.toContain(19, 14);
   });
+
+  // What happens if the array contains negative numbers
 });
 
 // Convert String Case
@@ -113,6 +117,8 @@ describe("converts strings case", () => {
     result = convertString(string);
     expect(result).toBe("TESTING");
   });
+
+  // What if its a mix of uppercase and lowercase
 });
 
 // Find the remainder
@@ -124,6 +130,9 @@ describe("find the remainder of two numbers", () => {
     let result = findRemainder(firstNum, secondNum);
     expect(result).toBe(1);
   });
+
+  // What if the second num is larger than the first num
+  // Write a test for negative numbers
 });
 
 // Find the largest number in an array
