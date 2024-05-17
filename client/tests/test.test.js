@@ -157,24 +157,24 @@ describe("find smallest number", () => {
 });
 
 // Check input value
-// describe("check different input values", () => {
-//   let inputElement;
+describe("check different input values", () => {
+  let inputElement;
 
-//   beforeEach(() => {
-//     inputElement = document.createElement("input");
-//   });
+  beforeEach(() => {
+    inputElement = document.createElement("input");
+  });
 
-//   test("check value is correct", () => {
-//     inputElement.value = "test value";
+  test("check value is correct", () => {
+    inputElement.value = "test value";
 
-//     let result = testInputValue(inputElement, "test value");
-//     expect(result).toBe(true);
-//   });
+    let result = testInputValue(inputElement, "test value");
+    expect(result).toBe(true);
+  });
 
-//   test("check value is incorrect", () => {
-//     inputElement.value = "test value";
+  test("check value is incorrect", () => {
+    inputElement.value = "test value";
 
-//     let result = testInputValue(inputElement, "test wrong value");
-//     expect(result).toBe(false);
-//   });
-// });
+    let result = testInputValue(inputElement, "test wrong value");
+    expect(result).toBe(false);
+  });
+});
