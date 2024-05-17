@@ -73,6 +73,21 @@ function testInputValue(inputElement, targetValue) {
   return inputElement.value === targetValue;
 }
 
+// Fetch function to test writing mocks
+async function testMockFetch() {
+  try {
+    const response = await fetch(
+      "https://pokeapi.co/api/v2/pokemon/ditto"
+    ).then((data) => {
+      return data.json();
+    });
+    console.log(response.name);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+testMockFetch();
+
 module.exports = {
   sum,
   arrayTotal,
@@ -84,5 +99,6 @@ module.exports = {
   findLargest,
   findSmallest,
   testInputValue,
+  testMockFetch,
 };
 // module.exports.arrayTotal = arrayTotal;

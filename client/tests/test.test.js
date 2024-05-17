@@ -25,6 +25,7 @@ const {
   findLargest,
   findSmallest,
   testInputValue,
+  testMockFetch,
 } = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
@@ -178,3 +179,5 @@ describe("check different input values", () => {
     expect(result).toBe(false);
   });
 });
+
+// Test mock fetch, ##REMEMBER not testing the actual api call, you are testing the functionality of the code within the fetch function. example - response returns json data, if json data not returned the catch error kicks in
