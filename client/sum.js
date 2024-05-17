@@ -66,7 +66,12 @@ function findSmallest(arr) {
   return Math.min(...arr);
 }
 
-console.log(findSmallest(testArr));
+// console.log(findSmallest(testArr));
+
+// Test input value is as expected
+function testInputValue(inputElement, targetValue) {
+  return inputElement.value === targetValue;
+}
 
 module.exports = {
   sum,
@@ -78,5 +83,6 @@ module.exports = {
   findRemainder,
   findLargest,
   findSmallest,
+  testInputValue,
 };
 // module.exports.arrayTotal = arrayTotal;

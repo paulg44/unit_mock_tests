@@ -24,6 +24,7 @@ const {
   findRemainder,
   findLargest,
   findSmallest,
+  testInputValue,
 } = require("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
@@ -154,3 +155,26 @@ describe("find smallest number", () => {
     expect(result).toBe(2);
   });
 });
+
+// Check input value
+// describe("check different input values", () => {
+//   let inputElement;
+
+//   beforeEach(() => {
+//     inputElement = document.createElement("input");
+//   });
+
+//   test("check value is correct", () => {
+//     inputElement.value = "test value";
+
+//     let result = testInputValue(inputElement, "test value");
+//     expect(result).toBe(true);
+//   });
+
+//   test("check value is incorrect", () => {
+//     inputElement.value = "test value";
+
+//     let result = testInputValue(inputElement, "test wrong value");
+//     expect(result).toBe(false);
+//   });
+// });
