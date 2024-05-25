@@ -25,8 +25,7 @@ const {
   findLargest,
   findSmallest,
   testInputValue,
-  testMockFetch,
-} = require("../sum");
+} = require ("../sum");
 
 test("adds 1 + 2 to equal 3", () => {
   expect(sum(1, 2)).toBe(3);
@@ -87,7 +86,12 @@ describe("remove element from array", () => {
     expect(arr).not.toContain(3);
   });
 
-  // What happens if item to remove does not exist?
+  // What happens if item to remove does not exist? - added an if else statement to check if item exists in array
+  test("item does not exist in array", () => {
+    expect( () => {
+       removeFromArray([1, 2, 3, 4, 5], "string")
+    }).toThrow(new Error("This item is not included in array"))
+  })
 });
 
 // Filter Array
@@ -181,3 +185,30 @@ describe("check different input values", () => {
 });
 
 // Test mock fetch, ##REMEMBER not testing the actual api call, you are testing the functionality of the code within the fetch function. example - response returns json data, if json data not returned the catch error kicks in
+const mockData = { name: "Paul the Pokemon", age: 39, id: 1984 };
+const mockNameData = "Paul the Pokemon";
+// global.fetch = jest.fn(() =>
+//   Promise.resolve({
+//     json: () => Promise.resolve({ mockData }),
+//   })
+// );
+// describe("test mock fetch functions", () => {
+//   test("promise returns name", async () => {
+//     // const name = await testMockFetch();
+//     // expect(name).toBe(mockNameData);
+//     expect(fetch).toHaveBeenCalledTimes(1);
+//   });
+// });
+
+// import { testMockFetch } from "../sum.js";
+// const nock = require("nock");
+
+// describe("test mock fetch functions", () => {
+//   test("promise returns name", async () => {
+//     const scope = nock("https://pokeapi.co/api/v2/")
+//       .get("/pokemon/ditto")
+//       .reply(200, { name: "Paul the Pokemon", age: 39, id: 1984 });
+//     const name = await testMockFetch();
+//     expect(name).toBe("Paul the Pokemon");
+//   });
+// });

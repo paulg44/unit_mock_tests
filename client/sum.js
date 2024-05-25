@@ -1,3 +1,5 @@
+// import fetch from "node-fetch";
+
 // Test function to test tests
 function sum(a, b) {
   return a + b;
@@ -10,7 +12,7 @@ let totalArr = [9.99, 12.99];
 function arrayTotal(array) {
   return array.reduce((acc, curr) => acc + curr, 0);
 }
-console.log(arrayTotal(totalArr));
+// console.log(arrayTotal(totalArr));
 
 // Add an item to array
 function addToArray(array, item) {
@@ -20,10 +22,14 @@ function addToArray(array, item) {
 
 // Remove item from array
 function removeFromArray(array, item) {
-  const index = array.indexOf(item);
-  return array.splice(index, 1);
+  if(!array.includes(item)) {
+    throw new Error("This item is not included in array")
+  } else {
+    const index = array.indexOf(item);
+    return array.splice(index, 1);
+  }
 }
-// console.log(removeFromArray(testArr, 2), ...testArr);
+console.log(removeFromArray(testArr, 4), ...testArr);
 
 // Filter items in array
 function filterArray(array, filtered) {
@@ -73,15 +79,16 @@ function testInputValue(inputElement, targetValue) {
   return inputElement.value === targetValue;
 }
 
+
 // Fetch function to test writing mocks
-async function testMockFetch() {
+ async function testMockFetch() {
   try {
     const response = await fetch(
       "https://pokeapi.co/api/v2/pokemon/ditto"
     ).then((data) => {
       return data.json();
     });
-    console.log(response.name);
+    // console.log(response.name);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -99,6 +106,4 @@ module.exports = {
   findLargest,
   findSmallest,
   testInputValue,
-  testMockFetch,
 };
-// module.exports.arrayTotal = arrayTotal;
