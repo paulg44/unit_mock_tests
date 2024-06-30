@@ -29,7 +29,7 @@ function removeFromArray(array, item) {
     return array.splice(index, 1);
   }
 }
-console.log(removeFromArray(testArr, 4), ...testArr);
+// console.log(removeFromArray(testArr, 4), ...testArr);
 
 // Filter items in array
 function filterArray(array, filtered) {

@@ -7,7 +7,7 @@ const deploy = "https://unit-mock-tests.onrender.com/api/shop";
 
 async function fetchAllShopItems() {
   try {
-    const shopItemsResponse = await fetch(`${dev}`);
+    const shopItemsResponse = await fetch(`${deploy}`);
 
     const shopItemsData = await shopItemsResponse.json();
 
